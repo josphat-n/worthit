@@ -52,8 +52,12 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'worthit.wsgi.application'
+UPLOADCARE = {
+    'pub_key': '75fcbd7a140b9250e620',
+    'secret': '491548f339e9874d2469',
+}
 
+WSGI_APPLICATION = 'worthit.wsgi.application'
 
 # Database
 # development
