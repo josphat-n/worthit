@@ -1,0 +1,22 @@
+{%extends 'profile/base.html'%}
+{% load static%}
+{% load bootstrap4 %}
+
+{% block styles %} 
+{{ block.super}}
+  
+{% endblock %}
+{% block content %} 
+<div class="container">
+   <div class="row">
+      <div class="col-4">
+         <p>Name:</p>
+         <p>Contact:</p>
+         <p>Bio:</p>         
+      </div>
+      <div class="col-5">
+         <h1 class='text-center'>Your uploaded Projects</h1>
+      </div>           
+   </div>
+</div>
+{% endblock content%}
