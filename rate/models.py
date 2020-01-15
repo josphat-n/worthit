@@ -16,3 +16,12 @@ class Project(models.Model):
    
    def __str__(self):
       return self.title
+   
+   @classmethod
+   def get_all(cls):
+      """
+      This function allows for the fetching of all the project objects from the database
+      """
+      projs = Project.objects.all()
+      return projs 
+      

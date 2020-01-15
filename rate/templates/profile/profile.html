@@ -6,6 +6,7 @@
 {{ block.super}}
   
 {% endblock %}
+
 {% block content %} 
 <div class="container">
    <div class="row">
@@ -16,9 +17,24 @@
          <hr>   
          <a href="{% url 'new-project'%}" class="btn btn-primary">Upload a project</a>     
       </div>
-      <div class="col-5">
+      <div class="col-6">
          <h4 class='text-center'>Your Projects</h4>
+         <!--Display images  in a card-->
+         {% for proj in projects %}                     
+         <div class="card h-100 border-0 shadow">
+            <img class="card-img-top" src="{{ proj.poster.cdn_url}}" alt="Profile poster">
+            <div class="card-body">
+               <button class="btn btn-primary">Edit</button>
+               <button class="btn btn-danger" style="float:right">Delete</button>
+            </div>
+          </div>     
+         {% empty %}
+         <div class="row">
+            <h2 class="text-center">You have not uploaded a project yet</h2>
+         </div>
+         {% endfor %}
       </div>           
-   </div>
+   </div>      
 </div>
+
 {% endblock content%}

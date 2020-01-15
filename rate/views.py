@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http  import HttpResponse
 from .forms  import ProjectForm
 from django.contrib.auth.decorators import login_required
+from .models import Project
 
 # Create your views here.
 def home(request):
@@ -21,5 +22,5 @@ def project(request):
    return render(request, 'rate/new-project.html', {"form": form})
 
 def profile(request):
-   
-   return render(request, 'profile/profile.html')
+   projects = Project.get_all() 
+   return render(request, 'profile/profile.html', {'projects': projects})
