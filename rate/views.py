@@ -12,3 +12,7 @@ def project(request):
    form = ProjectForm()
    
    return render(request, 'rate/new-project.html', {"prjForm": form})
+
+def profile(request):
+   
+   return render(request, 'profile/profile.html')
