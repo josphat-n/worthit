@@ -17,17 +17,24 @@
          <hr>   
          <a href="{% url 'new-project'%}" class="btn btn-primary">Upload a project</a>     
       </div>
-      <div class="col-6">
-         <h4 class='text-center'>Your Projects</h4>
+         <!-- <h4 class='text-center'>Your Projects</h4> -->
          <!--Display images  in a card-->
          {% for proj in projects %}                     
-         <div class="card h-100 border-0 shadow">
-            <img class="card-img-top" src="{{ proj.poster.cdn_url}}" alt="Profile poster">
-            <div class="card-body">
-               <button class="btn btn-primary">Edit</button>
-               <button class="btn btn-danger" style="float:right">Delete</button>
-            </div>
-          </div>     
+         <div class="col-3">
+            <div class="card h-100 border-0 shadow">
+              <div class="card-img-top">
+                <div class="embed-responsive embed-responsive-4by3">
+                  <div class="embed-responsive-item">
+                    <img src="{{ proj.poster.cdn_url}}" alt="Profile poster" class="img-fluid w-100" />
+                  </div>
+                </div>
+                  <div class="card-body">
+                     <button class="btn btn-primary">Edit</button>
+                     <button class="btn btn-danger" style="float:right">Delete</button>                   
+                  </div>
+                </div>
+              </div>
+            </div>    
          {% empty %}
          <div class="row">
             <h2 class="text-center">You have not uploaded a project yet</h2>

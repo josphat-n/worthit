@@ -6,7 +6,8 @@ from .models import Project
 
 # Create your views here.
 def home(request):
-   return render(request, 'rate/home.html')
+   projects = Project.get_all() 
+   return render(request, 'rate/home.html',{'projects': projects})
 
 @login_required(login_url='/accounts/login/')
 def project(request):

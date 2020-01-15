@@ -11,12 +11,28 @@
 {% block content %} 
 <div class="container">
    <div class="row">
-      <div class="col-3">
-         
+      <div class="col-8">
+         <div class="row">
+            {% for proj in projects %}                     
+            <div class="col-6">
+            <div class="card h-100 border-0 shadow">
+              <div class="card-img-top">
+                <div class="embed-responsive embed-responsive-4by3">
+                  <div class="embed-responsive-item">
+                    <img src="{{ proj.poster.cdn_url}}" alt="Profile poster" class="img-fluid w-100" />
+                  </div>
+                </div>
+                  <div class="card-body">
+                     <button class="btn btn-primary">Visit</button>
+                     <button class="btn btn-success" style="float:right">Rate</button>                   
+                  </div>
+                </div>
+              </div>
+            </div>             
+            {% endfor %}            
+         </div>         
       </div>
-      <div class="col-5">
-         <h1 class='text-center'>Welcome to worthIt Home!</h1>
-      </div>
+      <div class="col-1"></div> 
       <div class="col-3">
          <div class="hor-nav">  
             <ul>       
@@ -26,9 +42,7 @@
             <ul>
             </ul>
          </div>
-      </div>
-
-      
+      </div>      
    </div>
 </div>
 {% endblock content%}
