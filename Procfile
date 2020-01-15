@@ -1,0 +1,1 @@
+web: gunicorn worthit.wsgi --log-file -
