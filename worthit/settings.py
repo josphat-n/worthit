@@ -13,7 +13,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
 INSTALLED_APPS = [
-    # 'pyuploadcare.dj',
+    'pyuploadcare.dj',
     'bootstrap4',
     'rate.apps.RateConfig',
     'django.contrib.admin',
@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -39,7 +40,7 @@ ROOT_URLCONF = 'worthit.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,5 +131,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
 
 #Login and Logout redirect pages
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile'
 LOGOUT_REDIRECT_URL = '/'
