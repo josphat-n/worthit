@@ -9,6 +9,28 @@ class Profile(models.Model):
    bio = models.TextField()   
    contact = models.CharField(max_length =30)
    
+   def __str__(self):
+      return self.name
+   
+   @classmethod
+   def get_all(cls):
+      """
+      This function allows for the fetching of all the profile objects from the database
+      """
+      prof = Profile.objects.all()
+      return prof
+   def save_profile(self):
+      """
+      Save a profile to the database    
+      """
+      self.save()   
+   
+   def delete_profile(self):
+      """
+      function to delete a profile from the db
+      """
+      self.delete()   
+   
 class Project(models.Model):
    title = models.CharField(max_length =30)
    poster = ImageField(blank=True, manual_crop="")
