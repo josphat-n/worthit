@@ -49,3 +49,20 @@ class Project(models.Model):
       projs = Project.objects.all()
       return projs 
       
+   def save_project(self):
+      """
+      Save a new project to the database    
+      """
+      self.save()  
+          
+   def delete_project(self):
+      """
+      function to delete a project from the db
+      """
+      self.delete()  
+           
+   def update_project(self):
+      """
+      function to update some properties of the project model
+      """
+      self.project.update()       
